@@ -1,0 +1,419 @@
+ <!-- 
+  Program name: rajeshHomeworkTwo.html
+  Author: Rajesh Chikatla (1788318)
+  Date created: 10/08/2025
+  Date last edited: 10/23/2025
+  Version: 7.3
+  Description: This is a form to register a new account and capture demographic data for a medical clinic with added pattern and JS validation.
+ -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>Rajesh's Homework 1</title>
+        <!--- Load external CSS styles -->
+        <link rel="stylesheet" type="text/css" href="rajeshHomeworkTwoCSS.css"
+    </head>
+    <body> <!---header logo and date--> 
+        <div id="header"> 
+            <table width="100%">
+                <tr>
+                   <td>
+                        <img
+                            id="logo" 
+                            src="/Users/rajc2000/Desktop/sportsMedicineLogo.jpg" border = "1"
+                            alt="Brazos Orthopedic Partners"
+                            width="200" height="150"
+                            <td>
+	                            <td valign="middle" align="left"> <span id="companyName">Brazos Orthopedic Partners</span>
+	                        </td>
+                
+                    </td>
+                    <td valign="bottom" align="right">Today is: <span id="today">Date goes here </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+    <div id="body">
+    <form action="homework1-thankyou.html"> <!--takes you to a "thank you" page after hitting submit-->
+    <table class = "form">
+        <tr class="form">
+        <th class="form" colspan="3"><h3>Set up a new patient account</h3></th>
+        </tr>
+    <tr class="form"> <!--first line of form where name can be entered-->
+        <td align="left"><br>
+            <label for="firstname">First name, </label>
+            <label for="middleinit">MI, </label>
+            <label for="lastname">Last name</label>
+    </td>
+    <td>
+        <br><input type="text"
+                    size="20"
+                    maxlength="30" 
+                    id="firstname" 
+                    name="firsttname"
+                    placeholder="First name" 
+                    pattern="[A-Za-z'-]+"
+                    required
+            >
+
+            <input type="text" 
+                    size="1"
+                    maxlength="1" 
+                    id="middleinit" 
+                    name="middleinit" 
+                    pattern="[A-Z]{1}"
+                    placeholder="M"
+            >
+            <input type="text"
+                    size="25"
+                    maxlength="30" 
+                    id="lastname" 
+                    name="lastname" 
+                    placeholder="Last name"
+                    pattern="[a-zA-Z'2-5\-]+"
+                    title="Last name can only contain letters, apostrophes, dashes, and suffixes ie. IV, 2nd."
+                    required
+            >
+        <span id="name_text"
+        >
+    </td>
+    <tr class="form"> <!--enter your DOB here-->
+        <td align="left"><br>
+            <label for="dateofbirth">Date of Birth (MM/DD/YYYY):</label> 
+            </td>
+            <td>
+            <br><input type="date" 
+            id="date" 
+            name="date"
+            min="1900-01-01" max="2025-12-31"
+            required
+            >
+            </td>
+    <tr  class="form"> <!--Enter line 1 of address-->
+        <td align="left">
+            <br><label for="addressline1" >Address (Line 1):</label>
+            </td>
+            <td>
+            <br><input type="text" 
+                    size="20" 
+                    minlength="2"
+                    maxlength="30" 
+                    id="addr1" 
+                    name="addr1" 
+                    required
+                    placeholder="Address"
+                    pattern="[A-Za-z'-]+"
+                    required
+            >
+        </td>
+    </tr>
+    <tr  class="form"> <!--Enter apartment or unit-->
+        <td align="left">
+            <br><label for="addressline2">Address (Line 2):</label>
+        </td>
+        <td>
+            <br><input type="text" 
+                    size="15" 
+                    minlength="2"
+                    maxlength="30" 
+                    id="addr2" 
+                    name="addr2" 
+                    placeholder="Apt, Unit, etc."
+            >
+        </td>
+    <tr class="form"> <!--enter city, state, and ZIP-->
+        <td align="left">
+            <br><label for="city">City, </label>
+            <label for="state">State, </label>
+            <label for="zip">Zip:</label>
+        </td>
+        <td>
+            <br><input type="text" 
+                    size="30" 
+                    minlength="2"
+                    maxlength="30" 
+                    id="city" 
+                    name="city" 
+                    required
+                    placeholder="City"
+                    required
+            >
+            <select required> <!--all 50 states plus DC and PR-->
+                <option value="" disabled selected>Select an option</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="PA">Puerto Rico</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+                <option selected="" value="Default">(Please select a state)</option>
+            </select>
+            <input type="text" 
+                    size="10"
+                    maxlength="10" 
+                    id="zip" 
+                    name="zip" 
+                    required
+                    placeholder="ZIP"
+                    required
+            > -
+            <input type="text" 
+                    size="9"
+                    maxlength="4" 
+                    id="zipAddendum" 
+                    name="zipAddendum" 
+                    placeholder="+4 code" "optional"
+        </td>
+
+    <tr class="form"> <!--Add email address-->
+        <td align="left">
+            <br><label for="email" >Email Address:</label>
+        </td>
+        <td>
+            <br><input type="email" 
+                id="email" 
+                name="email" required
+                placeholder="email@domain.tld"
+                required
+            >
+        </td>
+    <tr class="form">
+        <td align="left">
+            <br><label for="phone">Enter your phone number:</label><br>
+            </td>
+            <td>
+                <br><input type="tel" 
+                    id="phone" 
+                    name="phone"
+                    size= "3"
+                    maxlength = "3"
+                    pattern="\d{3}"
+                    placeholder="###"
+                    title="Phone number must be in format of ###-###-####."
+                    required
+                >
+                -
+                <input type="tel" 
+                    id="phone" 
+                    name="phone"
+                    size= "3"
+                    maxlength = "3"
+                    pattern="\d{3}"
+                    placeholder="###"
+                    title="Phone number must be in format of ###-###-####."
+                    required
+                >
+                -
+                <input type="tel" 
+                    id="last4DigitsPhone" 
+                    name="phone"
+                    size= "4"
+                    maxlength = "4"
+                    pattern="\d{4}"
+                    placeholder="####"
+                    title="Phone number must be in format of ###-###-####."
+                    required
+                >
+        </td>
+ 
+    <tr class="form"> <!--Enter symptoms-->
+        <td align="left">
+            <br><label for="story">Symptoms:</label><br><br>
+        </td>
+        <td>
+            <br><textarea id="story" name="story" rows="5" cols="50">
+            Please describe your symptoms.
+            </textarea>
+        </td>
+    <tr class="form"> <!--Check off selected symptoms of interest-->
+        <td align="left">
+            <br><br><label for="checksymptoms">Check all of the following conditions that apply:</label><br><br>
+        </td>
+        <td>
+            <br>
+            <input type="checkbox" id="chickpox" name="chickpox" value="Chicken Pox">
+            <label for="chickpox"> Chickenpox</label><br>
+            <input type="checkbox" id="measles" name="measles" value="measles">
+            <label for="Measles">Measles</label><br>
+            <input type="checkbox" id="covid19" name="covid19" value="covid19">
+            <label for="covid19">COVID-19</label><br>
+            <input type="checkbox" id="smallpox" name="smallpox" value="smallpox">
+            <label for="smallpox">Smallpox</label><br>
+            <input type="checkbox" id="tetanus" name="tetanus" value="tetanus">
+            <label for="tetanus">Tetanus</label><br>
+        </td>
+    <tr class="form"> <!--Complete 4 screening questions/insurance info-->
+        <td align="left">
+            <br><br><label for="yesnoquestions">Please complete these 4 questions:</label><br><br>
+        </td>
+        <td>
+            <br><br><label for="gender">1. Gender:</label><br>
+            <input type="radio" id="male" name="gender" value="Male">
+              <label for="Male">Male</label>
+              <input type="radio" id="female" name="gender" value="Female"><label for="Female">Female</label>
+              <input type="radio" id="other" name="gender" value="Other"><label for="other">Other</label><br>
+            <br><label for="vaccinated">2. Have you been vaccinated for COVID-19?:</label><br>
+            <input type="radio" id="yes" name="yesno" value="Yes">
+              <label for="Yes">Yes</label>
+            <input type="radio" id="no" name="yesno" value="No">
+              <label for="No">No</label><br>
+            <br><label for="insurance">3. Do you have insurance?:</label><br>
+            <input type="radio" id="yes" name="yesnoinsurance" value="Yes">
+              <label for="Yes">Yes</label>
+            <input type="radio" id="no" name="yesnoinsurance" value="No">
+              <label for="No">No</label><br>
+            <br><label for="Insurance provider">4. Insurance Provider [if applicable]:</label>
+            <br><select required>
+                <option value=""></option>
+                <option value="BCBS">BCBS</option>
+                <option value="Humana">Humana</option>
+                <option value="Aetna">Aetna</option>
+                <option value="Anthem">Anthem</option>
+                <option value="None">None of these</option>
+            </select>
+            </td>
+    <tr class="form"> <!--Select Pain level-->
+        <td align="left">
+            <br><label for=<p>"On a scale of 1-10, with 10 being great...how is your health?"</label><br><br>
+        </td>
+        <td> 1: I'm in agony
+                <input type="range" min="1" max="10" value="5" step="1" class="slider" id="myRange"
+                
+        </td>
+            10: I feel great
+            <p>Value: <span id="demo"></span></p>
+    <tr class="form"> <!--Enter a patient portal username-->
+        <td align="left"><br>
+            <label for="username">Enter a username:</label>
+        </td>
+        <td>
+            <br><input type="text"
+                    size="20"
+                    maxlength="20" 
+                    id="username" 
+                    name="username"
+                    placeholder="Username" 
+                    required
+        </td>
+    <tr class="form"> <!--Enter patient portal password-->
+        <td align="left"><br>
+            <label for="password">Enter a password:</label>
+        </td>
+        <td>
+        <br><input type="password" 
+                id="password"
+                name="password"
+                maxlength="30"
+                placeholder="Enter password"
+                required
+        </td>
+    <tr class="form"> <!--Confirm password-->
+        <td align="left"><br>
+            <label for="redopassword">Re-enter password:</label>
+        </td>
+        <td>
+        <br><input type="password" 
+                id="redopassword"
+                name="redopassword"
+                maxlength="30"
+                placeholder="Re-enter password"
+                required
+        </td>
+    </tr>
+    <tr class="form"> <!--Reset form and submit form buttons-->
+        <td 
+            align="left">
+        </td>
+        <td>
+            <br>
+            <input type="submit" value="Submit"><br><br>
+            <input type="reset" value="CLEAR AND START OVER">
+        </td>
+    </table>
+    </form>
+    </div>
+    <br><div id="footer"
+            <hr>
+            <p>Contact Us: <a href="https://www.instagram.com/">Instagram</a> | <a href="https://www.facebook.com/">Facebook</a> | <a href="https://x.com/">Twitter</a>
+            <p>Phone: 281-687-8954</p>
+            <p>Sugar Land TX 77496 PO BOX 18881</p>
+            <img 
+                            id="logo" 
+                            src="/Users/rajc2000/Desktop/sportsMedicineLogo.jpg" 
+                            alt="Brazos Medical Partners"
+                            width="100" height="80"
+            > <!-- Hyperlinks to IG, FB, and X. Along with address/contact info and company logo-->
+            <p>Copyright © Brazos Medical Partners 2025</p> 
+    </div> <!-- dynamically fetches todays date-->
+         <td align="left">
+        <script>
+            document.getElementById("today").innerHTML = new Date().toLocaleDateString();
+        </script>
+    </body>
+</html>
+
+    
+
+
+
+    
+
+        
+            
+            
+
+
+
+
+            
+          

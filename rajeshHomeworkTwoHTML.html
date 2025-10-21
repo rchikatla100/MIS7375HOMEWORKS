@@ -11,7 +11,6 @@
 <html>
     <head>
         <meta charset="utf-8">
-
         <title>Rajesh's Homework 1</title>
         <!--- Load external CSS styles -->
         <link rel="stylesheet" type="text/css" href="rajeshHomeworkTwoCSS.css"
@@ -31,7 +30,8 @@
 	                        </td>
                 
                     </td>
-                    <td valign="bottom" align="right">Today is: <span id="today">Date goes here </span>
+                    <td 
+                            valign="bottom" align="right">Today is: <span id="today">Date goes here </span>
                     </td>
                 </tr>
             </table>
@@ -41,33 +41,40 @@
     <form action="homework1-thankyou.html"> <!--takes you to a "thank you" page after hitting submit-->
     <table class = "form">
         <tr class="form">
-        <th class="form" colspan="3"><h3>Set up a new patient account</h3></th>
+            <th class="form" colspan="3"><h3>Set up a new patient account</h3></th>
         </tr>
     <tr class="form"> <!--first line of form where name can be entered-->
         <td align="left"><br>
             <label for="firstname">First name, </label>
             <label for="middleinit">MI, </label>
             <label for="lastname">Last name</label>
-    </td>
+        </td>
+
     <td>
-        <br><input type="text"
+        <br>
+        <input type="text"
                     size="20"
                     maxlength="30" 
                     id="firstname" 
                     name="firsttname"
                     placeholder="First name" 
-                    pattern="[A-Za-z'-]+"
+                    pattern="[A-Za-z'-]{1,30}"
+                    title = "Please enter your first name"
+                    onblur = "validateFirstName()"
                     required
-            >
-
+                    <span class = "error" id="firstNameError"></span>
+            
             <input type="text" 
-                    size="1"
+                    size="2"
                     maxlength="1" 
                     id="middleinit" 
                     name="middleinit" 
-                    pattern="[A-Z]{1}"
+                    pattern="[a-zA-Z]{0,1}"
+                    onblur = "validateMiddleInit()"
                     placeholder="M"
-            >
+                    title = "Please enter your middle initial (capitals only)"
+                    <span class = "error" id="middleInitError"></span>
+            
             <input type="text"
                     size="25"
                     maxlength="30" 
@@ -77,28 +84,54 @@
                     pattern="[a-zA-Z'2-5\-]+"
                     title="Last name can only contain letters, apostrophes, dashes, and suffixes ie. IV, 2nd."
                     required
-            >
-        <span id="name_text"
-        >
+                    onblur = "validateLastName()"
+                    <span class = "error" id="lastNameError"></span>
     </td>
+
     <tr class="form"> <!--enter your DOB here-->
         <td align="left"><br>
             <label for="dateofbirth">Date of Birth (MM/DD/YYYY):</label> 
+            <br>
             </td>
             <td>
-            <br><input type="date" 
-            id="date" 
-            name="date"
-            min="1900-01-01" max="2025-12-31"
-            required
-            >
-            </td>
+            <br>
+                <input type="date" 
+                id="date" 
+                name="date"
+                min="1900-01-01" max="2025-12-31"
+                onblur = "validateDOB()"
+                required
+                <span class = "error" id="dobError"></span>
+
+        </td>
+    </tr>
+    <tr class = "form"> <!-- enter SSN-->
+        <td align="left"><br>
+            <label for="ssn">Social Security Number (9-digit-format):</label>
+            <br>
+        </td>
+        <td>
+            <br><input type="password" 
+                    size="12" 
+                    maxlength="11" 
+                    id="ssn" 
+                    name="ssn" 
+                    placeholder="123-45-6789"
+                    pattern="\d{3}-\d{2}-\d{4}"
+                    title = "Please enter a valid SSN in the format ***-**-****."
+                    required
+                    onblur = "validateSSN()"
+                    <span class = "error" id="ssnError"></span>
+        </td>
+
     <tr  class="form"> <!--Enter line 1 of address-->
-        <td align="left">
-            <br><label for="addressline1" >Address (Line 1):</label>
+        <td align="left"><br>
+            <label for="addressline1" >Address (Line 1):</label>
+            <br>
             </td>
             <td>
-            <br><input type="text" 
+            <br>
+                    <input type="text" 
                     size="20" 
                     minlength="2"
                     maxlength="30" 
@@ -107,10 +140,12 @@
                     required
                     placeholder="Address"
                     pattern="[A-Za-z'-]+"
-                    required
-            >
+                    onblur = "validateAddressLine1()"
+                    <span class = "error" id="addressLine1Error"></span>
+                    
         </td>
     </tr>
+
     <tr  class="form"> <!--Enter apartment or unit-->
         <td align="left">
             <br><label for="addressline2">Address (Line 2):</label>
@@ -125,6 +160,7 @@
                     placeholder="Apt, Unit, etc."
             >
         </td>
+
     <tr class="form"> <!--enter city, state, and ZIP-->
         <td align="left">
             <br><label for="city">City, </label>
@@ -203,16 +239,21 @@
                     maxlength="10" 
                     id="zip" 
                     name="zip" 
-                    required
                     placeholder="ZIP"
+                    pattern="(0-9){5}"
+                    title = "Please enter a valid ZIP code."
                     required
-            > -
+                    onblur = "validateZIP()"
+                    <span class = "error" id="zipError"></span>
+
+            
             <input type="text" 
                     size="9"
                     maxlength="4" 
                     id="zipAddendum" 
                     name="zipAddendum" 
-                    placeholder="+4 code" "optional"
+                    placeholder="+4 code" 
+                    optional
         </td>
 
     <tr class="form"> <!--Add email address-->
@@ -220,49 +261,36 @@
             <br><label for="email" >Email Address:</label>
         </td>
         <td>
-            <br><input type="email" 
+            <br><input 
+                type="email" 
                 id="email" 
                 name="email" required
-                placeholder="email@domain.tld"
+                title = "Please enter a valid email address."
+                placeholder="email@domain.com"
+                pattern ="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$"
                 required
-            >
+                onblur = "validateEmail()"
+                <span class = "error" id="emailError"></span>
+            
         </td>
+
     <tr class="form">
         <td align="left">
-            <br><label for="phone">Enter your phone number:</label><br>
-            </td>
-            <td>
+            <br><label for="phone">Enter your phone number:</label>
+            <br>
+        </td>
+        <td>
                 <br><input type="tel" 
                     id="phone" 
                     name="phone"
-                    size= "3"
-                    maxlength = "3"
-                    pattern="\d{3}"
-                    placeholder="###"
+                    size= "12"
+                    maxlength = "20"
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    placeholder="###-###-####"
                     title="Phone number must be in format of ###-###-####."
                     required
-                >
-                -
-                <input type="tel" 
-                    id="phone" 
-                    name="phone"
-                    size= "3"
-                    maxlength = "3"
-                    pattern="\d{3}"
-                    placeholder="###"
-                    title="Phone number must be in format of ###-###-####."
-                    required
-                >
-                -
-                <input type="tel" 
-                    id="last4DigitsPhone" 
-                    name="phone"
-                    size= "4"
-                    maxlength = "4"
-                    pattern="\d{4}"
-                    placeholder="####"
-                    title="Phone number must be in format of ###-###-####."
-                    required
+                    onblur = "validatePhone()"
+                    <span class = "error" id="phoneError"></span
                 >
         </td>
  
@@ -271,8 +299,9 @@
             <br><label for="story">Symptoms:</label><br><br>
         </td>
         <td>
-            <br><textarea id="story" name="story" rows="5" cols="50">
-            Please describe your symptoms.
+            <br>
+            <textarea 
+                id="story" name="story" rows="5" cols="50"> Please describe your symptoms.
             </textarea>
         </td>
     <tr class="form"> <!--Check off selected symptoms of interest-->
@@ -320,18 +349,23 @@
                 <option value="Aetna">Aetna</option>
                 <option value="Anthem">Anthem</option>
                 <option value="None">None of these</option>
-            </select>
+            </select><br
             </td>
-    <tr class="form"> <!--Select Pain level-->
+
+    <br>   
+
+  <tr class="form"> <!--Select Pain level-->
         <td align="left">
-            <br><label for=<p>"On a scale of 1-10, with 10 being great...how is your health?"</label><br><br>
+            <br><label for=<p>"On a scale of 1-10, with 10 being great...how is your pain?"</label><br><br>
         </td>
-        <td> 1: I'm in agony
-                <input type="range" min="1" max="10" value="5" step="1" class="slider" id="myRange"
-                
+        <td>
+                <input type="range" min="1" max="10" id="myRange">
+                Value: <span id="rangeSlider"></span>               
+                <script src = "rajeshHomeworkTwoJS.js"></script>
         </td>
-            10: I feel great
-            <p>Value: <span id="demo"></span></p>
+            
+
+
     <tr class="form"> <!--Enter a patient portal username-->
         <td align="left"><br>
             <label for="username">Enter a username:</label>
@@ -339,50 +373,86 @@
         <td>
             <br><input type="text"
                     size="20"
+                    minlength = "5"
                     maxlength="20" 
                     id="username" 
                     name="username"
                     placeholder="Username" 
                     required
+                    title = "Please enter a valid username. It must contain at least 5 characters."
+                    onblur = "validateUsername()"
+                    <span class = "error" id="usernameError"></span>
+                    
         </td>
     <tr class="form"> <!--Enter patient portal password-->
         <td align="left"><br>
             <label for="password">Enter a password:</label>
         </td>
         <td>
-        <br><input type="password" 
-                id="password"
-                name="password"
-                maxlength="30"
-                placeholder="Enter password"
-                required
+            <br><input type="password" 
+                    id="password"
+                    name="password"
+                    minlength = "10"
+                    maxlength="30"
+                    required
+                    title = "Password must be at least 10 characters and contain at least one uppercase letter, one lowercase letter, one number, and one special character."
+                    placeholder="Enter password"
+                    onblur = "validatePassword()"
+                    oninput = "validatePassword()"
+                    onfocus = "validatePassword()"
+                    <span class = "error" id="passwordError"></span>
+                    
         </td>
+
     <tr class="form"> <!--Confirm password-->
         <td align="left"><br>
-            <label for="redopassword">Re-enter password:</label>
+            <label for="confimrpassword">Re-enter password:</label>
         </td>
         <td>
-        <br><input type="password" 
-                id="redopassword"
-                name="redopassword"
-                maxlength="30"
-                placeholder="Re-enter password"
-                required
+            <br><input type="password" 
+                    id="confirmpassword"
+                    name="confirmpassword"
+                    maxlength="30"
+                    placeholder = "Re-enter password"
+                    required
+                    onblur = "confirmassword()"
+                    oninput = "confirmPassword()"
+                    onfocus = "confirmPassword()"
+                    <span class = "error" id="confirmPasswordError"></span>
         </td>
+        <br>
     </tr>
+
     <tr class="form"> <!--Reset form and submit form buttons-->
-        <td 
-            align="left">
-        </td>
-        <td>
-            <br>
-            <input type="submit" value="Submit"><br><br>
-            <input type="reset" value="CLEAR AND START OVER">
-        </td>
+            <td class ="td1" colspan="5" rowspan = "3"> <br>
+            <center>
+                <input type="submit" name = "submit" id = "submit" value="Submit">
+                <input type="reset" name = "reset"  id = "reset" value="CLEAR AND START OVER">
+                <input type="button" name = "review"  if = "review" value="Review">
+            </center>
+            </td>
+    </tr>
+<div class = "passwordMessage"
+    <span id = "errorMessage"></span> <br>
+    <span id = "errorMessage"></span> <br>
+    <span id = "errorMessage"></span> <br>
+    <span id = "errorMessage"></span> <br>
+    <span id = "errorMessage"></span> <br>
+    <span id = "errorMessage"></span> <br>
+    <span id = "errorMessage"></span> <br>
+    <span id = "errorMessage"></span> <br>
+    <span id = "confirmPasswordError"></span> <br>
+</div>
+    <center>
+        <p id = "showInput"></p>
+    </center>
+
     </table>
-    </form>
-    </div>
-    <br><div id="footer"
+</form>
+
+    <br>
+    
+    <div id="footer"
             <hr>
             <p>Contact Us: <a href="https://www.instagram.com/">Instagram</a> | <a href="https://www.facebook.com/">Facebook</a> | <a href="https://x.com/">Twitter</a>
             <p>Phone: 281-687-8954</p>

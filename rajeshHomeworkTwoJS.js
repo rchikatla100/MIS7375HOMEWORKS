@@ -1,10 +1,13 @@
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
+/*const date = new Date();
+let text = date.toLocaleDateString();
+document.getElementById("today").innerHTML = text;
+*/
 
-// Display the default slider value
+
+let slider = document.getElementById("myRange");
+let output = document.getElementById("rangeSlider");
 output.innerHTML = slider.value;
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.innerHTML = this.value;
-};
+  slider.oninput = function() 
+  {
+    output.innerHTML = this.value;
+  }

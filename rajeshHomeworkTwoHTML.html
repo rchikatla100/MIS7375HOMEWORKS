@@ -38,7 +38,7 @@
         </div>
         <hr>
     <div id="body">
-    <form action="homework1-thankyou.html"> <!--takes you to a "thank you" page after hitting submit-->
+    <form action="rajeshHomeworkTwoThankYou.html"> <!--takes you to a "thank you" page after hitting submit-->
     <table class = "form">
         <tr class="form">
             <th class="form" colspan="3"><h3>Set up a new patient account</h3></th>
@@ -283,12 +283,14 @@
                     id="phone" 
                     name="phone"
                     size= "12"
-                    maxlength = "20"
+                    maxlength = "12"
                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                     placeholder="###-###-####"
                     title="Phone number must be in format of ###-###-####."
                     required
                     onblur = "validatePhone()"
+                    >
+                    </br>
                     <span class = "error" id="phoneError"></span
                 >
         </td>

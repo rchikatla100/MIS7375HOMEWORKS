@@ -106,3 +106,26 @@ function validateEmail()
   }
 }
 
+function validatePhone()
+{
+  let phone = document.getElementById("phoneError");
+  var phoneRegularExpression = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+
+  if (phone.length !== 12)
+  {
+    document.getElementById("phoneError").innerHTML = 
+    "Please enter a 9-digit phone number (###-###-####).";
+    return false;
+  }
+  else if (!phone.match(phoneRegularExpression))
+  {
+    document.getElementById("phoneError").innerHTML = 
+    "Please enter a valid phone number (###-###-####).";
+    return false;
+  }
+  else 
+  {
+    document.getElementById("phoneError").innerHTML = "";
+    return true;
+  }
+}

@@ -96,11 +96,13 @@
             <td>
             <br>
                 <input type="date" 
-                id="date" 
-                name="date"
+                id="dob" 
+                name="dob"
                 min="1900-01-01" max="2025-12-31"
                 onblur = "validateDOB()"
                 required
+                />
+                <br>
                 <span class = "error" id="dobError"></span>
 
         </td>
@@ -117,10 +119,11 @@
                     id="ssn" 
                     name="ssn" 
                     placeholder="123-45-6789"
-                    pattern="\d{3}-\d{2}-\d{4}"
                     title = "Please enter a valid SSN in the format ***-**-****."
                     required
                     onblur = "validateSSN()"
+                    />
+                    <br>
                     <span class = "error" id="ssnError"></span>
         </td>
 
@@ -132,7 +135,7 @@
             <td>
             <br>
                     <input type="text" 
-                    size="20" 
+                    size="30" 
                     minlength="2"
                     maxlength="30" 
                     id="addr1" 
@@ -141,6 +144,8 @@
                     placeholder="Address"
                     pattern="[A-Za-z'-]+"
                     onblur = "validateAddressLine1()"
+                    >
+                    </br>
                     <span class = "error" id="addressLine1Error"></span>
                     
         </td>
@@ -152,7 +157,7 @@
         </td>
         <td>
             <br><input type="text" 
-                    size="15" 
+                    size="30" 
                     minlength="2"
                     maxlength="30" 
                     id="addr2" 
@@ -235,25 +240,16 @@
                 <option selected="" value="Default">(Please select a state)</option>
             </select>
             <input type="text" 
-                    size="10"
+                    size="20"
                     maxlength="10" 
                     id="zip" 
                     name="zip" 
-                    placeholder="ZIP"
-                    pattern="(0-9){5}"
+                    placeholder="ZIP (+4 code optional)"
+                    pattern="(0-9-){11}"
                     title = "Please enter a valid ZIP code."
                     required
                     onblur = "validateZIP()"
                     <span class = "error" id="zipError"></span>
-
-            
-            <input type="text" 
-                    size="9"
-                    maxlength="4" 
-                    id="zipAddendum" 
-                    name="zipAddendum" 
-                    placeholder="+4 code" 
-                    optional
         </td>
 
     <tr class="form"> <!--Add email address-->
@@ -264,14 +260,17 @@
             <br><input 
                 type="email" 
                 id="email" 
-                name="email" required
+                name="email" 
+                required
+                size="25"
                 title = "Please enter a valid email address."
                 placeholder="email@domain.com"
                 pattern ="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$"
                 required
                 onblur = "validateEmail()"
+                >
+                </br>
                 <span class = "error" id="emailError"></span>
-            
         </td>
 
     <tr class="form">
@@ -374,10 +373,11 @@
             <br><input type="text"
                     size="20"
                     minlength = "5"
-                    maxlength="20" 
+                    maxlength="30" 
                     id="username" 
                     name="username"
                     placeholder="Username" 
+                    pattern = "[A-Za-z0-9/_]{5,30}"
                     required
                     title = "Please enter a valid username. It must contain at least 5 characters."
                     onblur = "validateUsername()"
@@ -409,7 +409,8 @@
             <label for="confimrpassword">Re-enter password:</label>
         </td>
         <td>
-            <br><input type="password" 
+            <br>
+            <input type="password" 
                     id="confirmpassword"
                     name="confirmpassword"
                     maxlength="30"
@@ -418,22 +419,25 @@
                     onblur = "confirmassword()"
                     oninput = "confirmPassword()"
                     onfocus = "confirmPassword()"
+                    />
+                    </br>
                     <span class = "error" id="confirmPasswordError"></span>
         </td>
         <br>
     </tr>
-
+<br>
     <tr class="form"> <!--Reset form and submit form buttons-->
             <td class ="td1" colspan="5" rowspan = "3"> <br>
             <center>
                 <input type="submit" name = "submit" id = "submit" value="Submit">
-                <input type="reset" name = "reset"  id = "reset" value="CLEAR AND START OVER">
+                &nbsp;&nbsp;&nbsp;
                 <input type="button" name = "review"  if = "review" value="Review">
+                &nbsp;&nbsp;&nbsp; 
+                <input type="reset" name = "reset"  id = "reset" value="CLEAR AND START OVER">
             </center>
             </td>
     </tr>
 <div class = "passwordMessage"
-    <span id = "errorMessage"></span> <br>
     <span id = "errorMessage"></span> <br>
     <span id = "errorMessage"></span> <br>
     <span id = "errorMessage"></span> <br>

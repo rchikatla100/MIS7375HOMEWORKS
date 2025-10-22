@@ -13,7 +13,7 @@
         <meta charset="utf-8">
         <title>Rajesh's Homework 1</title>
         <!--- Load external CSS styles -->
-        <link rel="stylesheet" type="text/css" href="rajeshHomeworkTwoCSS.css"
+        <link rel="stylesheet" type="text/css" href="rajeshHomeworkTwoCSS.css">
     </head>
     <body> <!---header logo and date--> 
         <div id="header"> 
@@ -24,7 +24,7 @@
                             id="logo" 
                             src="/Users/rajc2000/Desktop/sportsMedicineLogo.jpg" border = "1"
                             alt="Brazos Orthopedic Partners"
-                            width="200" height="150"
+                            width="200" height="150" >
                             <td>
 	                            <td valign="middle" align="left"> <span id="companyName">Brazos Orthopedic Partners</span>
 	                        </td>
@@ -69,7 +69,7 @@
                     maxlength="1" 
                     id="middleinit" 
                     name="middleinit" 
-                    pattern="[a-zA-Z]{0,1}"
+                    pattern="[A-Z]{0,1}"
                     onblur = "validateMiddleInit()"
                     placeholder="M"
                     title = "Please enter your middle initial (capitals only)"
@@ -98,6 +98,7 @@
                 <input type="date" 
                 id="dob" 
                 name="dob"
+                title  = "Please enter your date of birth."
                 min="1900-01-01" max="2025-12-31"
                 onblur = "validateDOB()"
                 required

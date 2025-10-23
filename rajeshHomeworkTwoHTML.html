@@ -26,12 +26,12 @@
                             alt="Brazos Orthopedic Partners"
                             width="200" height="150" >
                             <td>
-	                            <td valign="middle" align="left"> <span id="companyName">Brazos Orthopedic Partners</span>
+	                            <td valign="middle" align="center"> <span id="companyName">Brazos Orthopedic Partners</span>
 	                        </td>
                 
                     </td>
                     <td 
-                            valign="bottom" align="right">Today is: <span id="today">Date goes here </span>
+                            valign="middle" align="right">Today is: <span id="today">Date goes here </span>
                     </td>
                 </tr>
             </table>
@@ -45,9 +45,9 @@
         </tr>
     <tr class="form"> <!--first line of form where name can be entered-->
         <td align="left"><br>
-            <label for="firstname">First name, </label>
-            <label for="middleinit">MI, </label>
-            <label for="lastname">Last name</label>
+            <label for="firstname">First name: </label> </br>
+            <label for="middleinit">MI: </label> </br>
+            <label for="lastname">Last name:</label>
         </td>
 
     <td>
@@ -65,7 +65,7 @@
                     >
                     </br>
                     <span class = "error" id="firstNameError"></span>
-            
+                
             <input type="text" 
                     size="2"
                     maxlength="1" 
@@ -78,7 +78,7 @@
                     >
                     </br>
                     <span class = "error" id="middleInitError"></span>
-            
+              
             <input type="text"
                     size="25"
                     maxlength="30" 
@@ -92,6 +92,7 @@
                     >
                     </br>
                     <span class = "error" id="lastNameError"></span>
+                </br>
     </td>
 
     <tr class="form"> <!--enter your DOB here-->
@@ -148,6 +149,7 @@
                     id="addr1" 
                     name="addr1" 
                     required
+                    title = "Please enter your address (30 characters max)."
                     placeholder="Address"
                     pattern="[A-Za-z'-]+"
                     onblur = "validateAddressLine1()"
@@ -160,7 +162,7 @@
 
     <tr  class="form"> <!--Enter apartment or unit-->
         <td align="left">
-            <br><label for="addressline2">Address (Line 2):</label>
+            <br><label for="addressline2">Apartment, Unit, etc if applicable:</label>
         </td>
         <td>
             <br><input type="text" 
@@ -169,6 +171,7 @@
                     maxlength="30" 
                     id="addr2" 
                     name="addr2" 
+                    title = "Please enter your apartment, unit, etc. (30 characters max)."
                     placeholder="Apt, Unit, etc."
             >
         </td>
@@ -186,6 +189,7 @@
                     maxlength="30" 
                     id="city" 
                     name="city" 
+                    title = "Please enter your city."
                     required
                     placeholder="City"
                     required
@@ -253,14 +257,14 @@
                     name="zip" 
                     placeholder="ZIP (+4 code optional)"
                     pattern="(0-9-){11}"
-                    title = "Please enter a valid ZIP code."
+                    title = "Please enter a valid ZIP code (+4 code optional)."
                     required
                     onblur = "validateZIP()"
                     >
                     </br>
                     <span class = "error" id="zipError"></span>
         </td>
-
+<div class = "form"></div>
     <tr class="form"> <!--Add email address-->
         <td align="left">
             <br><label for="email" >Email Address:</label>
@@ -301,9 +305,11 @@
                     >
                     </br>
                     <span class = "error" id="phoneError"></span
+                        <p></p>
+                        <hr class="dashed"
                 >
         </td>
- 
+
     <tr class="form"> <!--Enter symptoms-->
         <td align="left">
             <br><label for="story">Symptoms:</label><br><br>
@@ -370,12 +376,14 @@
         </td>
         <td>
                 <input type="range" min="1" max="10" id="myRange">
-                Value: <span id="rangeSlider"></span>               
+                I'm feeling: <span id="rangeSlider"></span>               
                 <script src = "rajeshHomeworkTwoJS.js"></script>
+                 <p></p>
+                <hr class="dashed">
         </td>
             
 
-
+        
     <tr class="form"> <!--Enter a patient portal username-->
         <td align="left"><br>
             <label for="username">Enter a username:</label>
@@ -448,28 +456,27 @@
             <center>
                 <input type="submit" name = "submit" id = "submit" value="Submit">
                 &nbsp;&nbsp;&nbsp;
-                <input type="button" name = "review"  if = "review" value="Review">
+                <input type="button" name = "review"  if = "review" value="Review" onclick="reviewInput()">
                 &nbsp;&nbsp;&nbsp; 
                 <input type="reset" name = "reset"  id = "reset" value="CLEAR AND START OVER">
             </center>
             </td>
     </tr>
-<div class = "passwordMessage">
-    <span id = "errorMessage"></span> <br/>
-    <span id = "errorMessage"></span> <br/>
-    <span id = "errorMessage"></span> <br/>
-    <span id = "errorMessage"></span> <br/>
-    <span id = "errorMessage"></span> <br/>
-    <span id = "errorMessage"></span> <br/>
-    <span id = "errorMessage"></span> <br/>
-    <span id = "confirmPasswordError"></span> <br/>
+            <div class = "passwordError">
+                <span id = "errorMessage"></span> <br/>
+                <span id = "errorMessage"></span> <br/>
+                <span id = "errorMessage"></span> <br/>
+                <span id = "errorMessage"></span> <br/>
+                <span id = "errorMessage"></span> <br/>
+                <span id = "errorMessage"></span> <br/>
+                <span id = "errorMessage"></span> <br/>
+                <span id = "confirmPasswordError"></span> <br/>
 </div>
     <center>
         <p id = "showInput"></p>
     </center>
 </div>
     </table>
-
 
 
 </form>
@@ -493,6 +500,7 @@
         <script>
             document.getElementById("today").innerHTML = new Date().toLocaleDateString();
         </script>
+
     </body>
 </html>
 

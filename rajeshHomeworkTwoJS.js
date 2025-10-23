@@ -1,3 +1,8 @@
+/*
+Rajesh Chikatla (1788318)
+Homework 2 JS Scripts
+*/
+
 // dynamic date
 const date = new Date();
 let text = date.toLocaleDateString();
@@ -243,4 +248,6 @@ function confirmPassword()
     return true;
   }
 }
+
+
 

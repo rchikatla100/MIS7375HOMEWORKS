@@ -62,6 +62,8 @@
                     title = "Please enter your first name"
                     onblur = "validateFirstName()"
                     required
+                    >
+                    </br>
                     <span class = "error" id="firstNameError"></span>
             
             <input type="text" 
@@ -73,6 +75,8 @@
                     onblur = "validateMiddleInit()"
                     placeholder="M"
                     title = "Please enter your middle initial (capitals only)"
+                    >
+                    </br>
                     <span class = "error" id="middleInitError"></span>
             
             <input type="text"
@@ -85,6 +89,8 @@
                     title="Last name can only contain letters, apostrophes, dashes, and suffixes ie. IV, 2nd."
                     required
                     onblur = "validateLastName()"
+                    >
+                    </br>
                     <span class = "error" id="lastNameError"></span>
     </td>
 
@@ -250,6 +256,8 @@
                     title = "Please enter a valid ZIP code."
                     required
                     onblur = "validateZIP()"
+                    >
+                    </br>
                     <span class = "error" id="zipError"></span>
         </td>
 
@@ -308,20 +316,20 @@
         </td>
     <tr class="form"> <!--Check off selected symptoms of interest-->
         <td align="left">
-            <br><br><label for="checksymptoms">Check all of the following conditions that apply:</label><br><br>
+            <br><br><label for="checksymptoms">Please select any of the following conditions that apply:</label><br><br>
         </td>
         <td>
             <br>
-            <input type="checkbox" id="chickpox" name="chickpox" value="Chicken Pox">
-            <label for="chickpox"> Chickenpox</label><br>
-            <input type="checkbox" id="measles" name="measles" value="measles">
-            <label for="Measles">Measles</label><br>
+            <input type="checkbox" id="" name="Osteoporosis" value="Osteoporosis">
+            <label for="Osteoporosis"> Osteoporosis</label><br>
+            <input type="checkbox" id="Rheumatoid Arthritis" name="Rheumatoid Arthritis" value="Rheumatoid Arthritis">
+            <label for="Rheumatoid Arthritis">Rheumatoid Arthritis</label><br>
             <input type="checkbox" id="covid19" name="covid19" value="covid19">
-            <label for="covid19">COVID-19</label><br>
-            <input type="checkbox" id="smallpox" name="smallpox" value="smallpox">
-            <label for="smallpox">Smallpox</label><br>
-            <input type="checkbox" id="tetanus" name="tetanus" value="tetanus">
-            <label for="tetanus">Tetanus</label><br>
+            <label for="covid19">Long COVID</label><br>
+            <input type="checkbox" id="Fibromyalgia" name="Fibromyalgia" value="Fibromyalgia">
+            <label for="Fibromyalgia">Fibromyalgia</label><br>
+            <input type="checkbox" id="Spinal Injury" name="spinalInjury" value="spinalInjury">
+            <label for="spinalInjury">Spinal Injury</label><br>
         </td>
     <tr class="form"> <!--Complete 4 screening questions/insurance info-->
         <td align="left">
@@ -374,7 +382,7 @@
         </td>
         <td>
             <br><input type="text"
-                    size="20"
+                    size="30"
                     minlength = "5"
                     maxlength="30" 
                     id="username" 
@@ -384,12 +392,14 @@
                     required
                     title = "Please enter a valid username. It must contain at least 5 characters."
                     onblur = "validateUsername()"
+                    >
+                    </br>
                     <span class = "error" id="usernameError"></span>
                     
         </td>
     <tr class="form"> <!--Enter patient portal password-->
         <td align="left"><br>
-            <label for="password">Enter a password:</label>
+            <label for="password">Password must be at least 10 characters and contain: </br> One uppercase letter </br> One lowercase letter </br> One number </br> One special character</label>
         </td>
         <td>
             <br><input type="password" 
@@ -403,13 +413,16 @@
                     onblur = "validatePassword()"
                     oninput = "validatePassword()"
                     onfocus = "validatePassword()"
+                    >
+                    </br>
                     <span class = "error" id="passwordError"></span>
+                    
                     
         </td>
 
     <tr class="form"> <!--Confirm password-->
         <td align="left"><br>
-            <label for="confimrpassword">Re-enter password:</label>
+            <label for="confimrpassword">Confirm password:</label>
         </td>
         <td>
             <br>
@@ -419,7 +432,8 @@
                     maxlength="30"
                     placeholder = "Re-enter password"
                     required
-                    onblur = "confirmassword()"
+                    title = "Passwords must match"
+                    onblur = "confirmPassword()"
                     oninput = "confirmPassword()"
                     onfocus = "confirmPassword()"
                     />
@@ -440,21 +454,24 @@
             </center>
             </td>
     </tr>
-<div class = "passwordMessage"
-    <span id = "errorMessage"></span> <br>
-    <span id = "errorMessage"></span> <br>
-    <span id = "errorMessage"></span> <br>
-    <span id = "errorMessage"></span> <br>
-    <span id = "errorMessage"></span> <br>
-    <span id = "errorMessage"></span> <br>
-    <span id = "errorMessage"></span> <br>
-    <span id = "confirmPasswordError"></span> <br>
+<div class = "passwordMessage">
+    <span id = "errorMessage"></span> <br/>
+    <span id = "errorMessage"></span> <br/>
+    <span id = "errorMessage"></span> <br/>
+    <span id = "errorMessage"></span> <br/>
+    <span id = "errorMessage"></span> <br/>
+    <span id = "errorMessage"></span> <br/>
+    <span id = "errorMessage"></span> <br/>
+    <span id = "confirmPasswordError"></span> <br/>
 </div>
     <center>
         <p id = "showInput"></p>
     </center>
-
+</div>
     </table>
+
+
+
 </form>
 
     <br>

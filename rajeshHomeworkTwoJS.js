@@ -13,7 +13,9 @@ output.innerHTML = slider.value;
     output.innerHTML = this.value;
   }
 
-// validate date of birth
+
+
+// Validate date of birth
 function validateDOB()
 {
   dob = document.getElementById("dob");
@@ -108,7 +110,7 @@ function validateEmail()
 
 function validatePhone()
 {
-  let phone = document.getElementById("phoneError");
+  let phone = document.getElementById("phone");
   var phoneRegularExpression = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
 
   if (phone.length !== 12)
@@ -129,3 +131,116 @@ function validatePhone()
     return true;
   }
 }
+
+
+
+// Validate username
+
+function validateUsername()
+{
+  let username = document.getElementById("username").value;
+  username = username.toLowerCase();
+  document.getElementById("username").value = username;
+
+  if (!isNaN(username.charAt(0)))
+  {
+    document.getElementById("usernameError").innerHTML = 
+    "Username cannot start with a number.";
+    return false;
+  }
+
+  if (username.length == 0)
+  {
+    document.getElementById("usernameError").innerHTML = 
+    "Username cannot be blank.";
+    return false; 
+  }
+
+  let usernameRegularExpression = /^[A-Za-z0-9_]{5,20}$/;
+  if (!usernameRegularExpression.test(username))
+  {
+    document.getElementById("usernameError").innerHTML = 
+    "Username must be at least 5 characters long and contain only letters, numbers, or underscore.";
+    return false;
+  }
+
+  else if (username.length > 30)
+  {
+    document.getElementById("usernameError").innerHTML = 
+    "Username cannot exceed 30 characters.";
+    return false;
+  } 
+
+  else if (username.length < 5)
+  {
+    document.getElementById("usernameError").innerHTML = 
+    "Username must be at least 5 characters long.";
+    return false;
+  }
+
+  else 
+  {
+    document.getElementById("usernameError").innerHTML = "";
+    return true;
+  }
+
+
+}
+
+// Validate Password
+function validatePassword()
+{
+  let password = document.getElementById("password").value;
+  let username = document.getElementById("username").value;
+
+  const passwordError = [];
+
+  if (!password.match(/[a-z]/)) // lowercase letter
+  {
+    passwordError.push("Please enter at least one lowercase letter.");
+  }
+  if (!password.match(/[A-Z]/)) // uppercase letter
+  {
+    passwordError.push("Please enter at least one uppercase letter.");
+  }
+  if (!password.match(/[0-9]/)) // at least one number
+  {
+    passwordError.push("Please enter at least one number.");
+  }
+  if (!password.match(/[!@#%^&*()-_+=\/><.,`~]/)) // special character
+  {
+    passwordError.push("Please enter at least one special character (!@#%^&*()-_+=\/><.,`~).");
+  }
+
+  if (password == username || password.includes(username))  // password can't contain username
+  {
+    passwordError.push("Password cannot contain username.");
+  }
+
+  const errorContainer = document.querySelector(".passwordMessage");
+  errorContainer.innerHTML = passwordError
+  .map((message) => `<span>{$message}</span><br/>`)
+  .join("");
+}
+
+
+// Validate confirm password
+
+function confirmPassword()
+{
+  password1 = document.getElementById("password").value;
+  password2 = document.getElementById("confirmpassword").value;
+
+  if (password1 !== password2)
+  {
+    document.getElementById("confirmPasswordError").innerHTML = 
+    "Passwords do not match.";
+    return false;
+  }
+  else 
+  {
+    document.getElementById("confirmPasswordError").innerHTML = "Passwords match!";
+    return true;
+  }
+}
+

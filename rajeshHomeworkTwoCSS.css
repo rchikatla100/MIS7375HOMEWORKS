@@ -2,27 +2,33 @@
 
 body { /* Background color of entire page */
     background-color: whitesmoke;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "cambria", sans-serif;
 }
  h1 { /* Set font of thank you page text */
     text-align: right;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "cambria", sans-serif;
     font-weight: normal;
     color: brown;
 }
+/* Dashed border */
+hr.dashed 
+{
+  border-top: 3px dashed #bbb;
+}
+
 table.form, tr.form, td.form { /* Set width, background color, font color, and font size of form */
-  width: 75%;
+  width: 100%;
   opacity: 1.0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   background-color:ghostwhite;
   padding: 0px;
   border-spacing: 00px;
   color:black;
 }
 th.form { /* Set width, background color, font color, and font size of "set up a new patient account" header */
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(95, 192, 230);
-  padding: 5px;
+  font-family: "cambria", sans-serif;
+  background: linear-gradient(ghostwhite, #3f87a6);
+  padding: 10px;
   border-spacing: 5px;
   color:black;
   margin-left: auto;
@@ -30,10 +36,85 @@ th.form { /* Set width, background color, font color, and font size of "set up a
 }
 .textsize1 
 {
-    width:5px
+    width:10px
 }
 .textsize5 
 {
     width:40px
 }
 
+.error 
+{
+  color: red;
+  font-size: 12px;
+  font-family: "cambria", sans-serif;
+  font-weight: normal;
+}
+
+.passwordMessage
+{
+  font-size: 12px;
+  font-family: "cambria", sans-serif;
+  font-weight: bold;
+  position: relative;
+  left:100px;
+  padding: 10px;
+  color: blue;
+  border-spacing: 5px;
+  border-radius: 15px;
+}
+
+
+#review
+{
+  font-size: 15px;
+  font-family: "cambria", sans-serif;
+  font-weight: normal;
+  background-color: moccasin;
+  color: black;
+}
+
+table.output,
+tr.output,
+td.output {
+  width : 500%;
+  font-family: "cambria";
+  padding: 10px;
+  border-spacing: 5px;
+  border-radius: 15px;
+  color:black;
+}
+
+.passwordError
+{
+  font-family: "cambria", sans-serif;
+  font-weight: normal;
+  color: red;
+  left: 200px;
+  padding: 10px;
+}
+
+#review
+{
+  margin-top :5px;
+}
+
+table.output, 
+tr.output,
+td.output 
+{
+  width : 500%;
+  font-family: "cambria";
+  padding: 10px;
+  border-spacing: 5px;
+  border-radius: 20px;
+  color:black;
+}
+
+td.output
+{
+  width: 500px;
+  background-color: red;
+  padding: 10px;
+  border-spacing: 5px;
+}

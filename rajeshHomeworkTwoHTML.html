@@ -1,5 +1,5 @@
  <!-- 
-  Program name: rajeshHomeworkTwo.html
+  Program name: rajeshHomeworkTwoHTML.html
   Author: Rajesh Chikatla (1788318)
   Date created: 10/08/2025
   Date last edited: 10/23/2025
@@ -22,9 +22,10 @@
                    <td>
                         <img
                             id="logo" 
-                            src="/Users/rajc2000/Desktop/sportsMedicineLogo.jpg" border = "1"
+                            src="sportsMedicineLogo.jpg" border = "1"
                             alt="Brazos Orthopedic Partners"
-                            width="200" height="150" >
+                            width="200" height="150" 
+                            >
                             <td>
 	                            <td valign="middle" align="center"> <span id="companyName">Brazos Orthopedic Partners</span>
 	                        </td>
@@ -37,14 +38,16 @@
             </table>
         </div>
         <hr>
+
+
     <div id="body">
-    <form action="rajeshHomeworkTwoThankYou.html"> <!--takes you to a "thank you" page after hitting submit-->
+    <form name ="signup" id = "signup" action="rajeshHomeworkTwoThankYou.html"> <!--takes you to a "thank you" page after hitting submit-->
     <table class = "form">
         <tr class="form">
             <th class="form" colspan="3"><h3>Set up a new patient account</h3></th>
         </tr>
     <tr class="form"> <!--first line of form where name can be entered-->
-        <td align="left"><br>
+        <td align="left">
             <label for="firstname">First name: </label> </br>
             <label for="middleinit">MI: </label> </br>
             <label for="lastname">Last name:</label>
@@ -63,9 +66,8 @@
                     onblur = "validateFirstName()"
                     required
                     >
-                    </br>
-                    <span class = "error" id="firstNameError"></span>
-                
+                    <span class = "error" id="firstNameError"></span></br>
+                    
             <input type="text" 
                     size="2"
                     maxlength="1" 
@@ -76,8 +78,7 @@
                     placeholder="M"
                     title = "Please enter your middle initial (capitals only)"
                     >
-                    </br>
-                    <span class = "error" id="middleInitError"></span>
+                    <span class = "error" id="middleInitError"></span></br>
               
             <input type="text"
                     size="25"
@@ -90,10 +91,20 @@
                     required
                     onblur = "validateLastName()"
                     >
-                    </br>
                     <span class = "error" id="lastNameError"></span>
                 </br>
     </td>
+    <tr class = "radio">
+        <td align = "left">
+            <label for="preferredname">Gender:</label>
+            <br>
+        </td>
+            <td>
+            <input type="radio" id="male" name="gender" value="Male">
+              <label for="Male">Male</label>
+              <input type="radio" id="female" name="gender" value="Female"><label for="Female">Female</label>
+              <input type="radio" id="other" name="gender" value="Other"><label for="other">Other</label><br>
+    </tr>
 
     <tr class="form"> <!--enter your DOB here-->
         <td align="left"><br>
@@ -342,11 +353,11 @@
             <br><br><label for="yesnoquestions">Please complete these 4 questions:</label><br><br>
         </td>
         <td>
-            <br><br><label for="gender">1. Gender:</label><br>
+            <br><br><label for="Are you currently in physical therapy/rehabilitation?">Are you currently in physical therapy/rehabilitation?</label><br>
             <input type="radio" id="male" name="gender" value="Male">
-              <label for="Male">Male</label>
-              <input type="radio" id="female" name="gender" value="Female"><label for="Female">Female</label>
-              <input type="radio" id="other" name="gender" value="Other"><label for="other">Other</label><br>
+              <label for="Male">Yes</label>
+              <input type="radio" id="female" name="gender" value="Female"><label for="Female">No</label></br>
+
             <br><label for="vaccinated">2. Have you been vaccinated for COVID-19?:</label><br>
             <input type="radio" id="yes" name="yesno" value="Yes">
               <label for="Yes">Yes</label>
@@ -398,7 +409,7 @@
                     placeholder="Username" 
                     pattern = "[A-Za-z0-9/_]{5,30}"
                     required
-                    title = "Please enter a valid username. It must contain at least 5 characters."
+                    title = "Please enter a valid username. It must contain at least 5 to 30 numbers, letters, underscore, or dash. No spaces or special characters."
                     onblur = "validateUsername()"
                     >
                     </br>
@@ -456,29 +467,32 @@
             <center>
                 <input type="submit" name = "submit" id = "submit" value="Submit">
                 &nbsp;&nbsp;&nbsp;
-                <input type="button" name = "review"  if = "review" value="Review" onclick="reviewInput()">
-                &nbsp;&nbsp;&nbsp; 
                 <input type="reset" name = "reset"  id = "reset" value="CLEAR AND START OVER">
+                 &nbsp;&nbsp;&nbsp; 
+                <input type="button" name = "review"  if = "review" value="Review" onclick = "reviewInput()">
             </center>
             </td>
-    </tr>
-            <div class = "passwordError">
-                <span id = "errorMessage"></span> <br/>
-                <span id = "errorMessage"></span> <br/>
-                <span id = "errorMessage"></span> <br/>
-                <span id = "errorMessage"></span> <br/>
-                <span id = "errorMessage"></span> <br/>
-                <span id = "errorMessage"></span> <br/>
-                <span id = "errorMessage"></span> <br/>
-                <span id = "confirmPasswordError"></span> <br/>
+     </tr>
+     
+</table>
+ <tr class="form"> <!--Password requirement message-->
+        <td align="left"><br>
+            <label for="confimrpassword">Password Requirements Not Met:</label>
+        </td>
+</tr>
+<div class = "passwordError"><br/>
+                <span id = "errorMessage1"></span> <br/>
+                <span id = "errorMessage2"></span> <br/>
+                <span id = "errorMessage3"></span> <br/>
+                <span id = "errorMessage4"></span> <br/>
+                <span id = "errorMessage5"></span> <br/>
+                <span id = "confirmPasswordError"></span><br/>
 </div>
     <center>
         <p id = "showInput"></p>
     </center>
 </div>
-    </table>
-
-
+    
 </form>
 
     <br>
@@ -490,17 +504,18 @@
             <p>Sugar Land TX 77496 PO BOX 18881</p>
             <img 
                             id="logo" 
-                            src="/Users/rajc2000/Desktop/sportsMedicineLogo.jpg" 
+                            src="sportsMedicineLogo.jpg" border = "1"
                             alt="Brazos Medical Partners"
                             width="100" height="80"
             > <!-- Hyperlinks to IG, FB, and X. Along with address/contact info and company logo-->
             <p>Copyright © Brazos Medical Partners 2025</p> 
-    </div> <!-- dynamically fetches todays date-->
-         <td align="left">
+    </div> 
+    <!-- dynamically fetches todays date-->
+    <td align="left">
         <script>
             document.getElementById("today").innerHTML = new Date().toLocaleDateString();
         </script>
-
+    </td>
     </body>
 </html>
 
